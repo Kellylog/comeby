@@ -1,1 +1,119 @@
-places index
+   
+<br />
+<div class="index-booyah-box col-xs-6">
+  <h2 class="text-center">Attractions & Restaurants</h2>
+  <hr />
+  <!-- checkbox and filter-->
+
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <label>Looking for..</label>     
+    <label class="checkbox-inline">
+      <input type="checkbox" value="1">
+      <%= image_tag 'see.png' %> Attractions       
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="2">
+      <%= image_tag 'eat.png' %> Restaurants
+    </label>
+  </div>
+</form>
+
+<hr />
+
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <label>Neighborhoods</label>     
+    <label class="checkbox-inline">
+      <input type="checkbox" value="1">Hongdae
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="2">Itaewon
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="3">Myeongdong
+    </label>
+  </div>
+</form>
+  
+  <hr />
+  
+  <% @places.each do |place| %>
+  <div class="index-booyah-inner-box col-xs-5 sidebar_item">
+    <h4><%= link_to place.name, place_path(place), target: '_blank' %></h4><br />
+    <i><%= place.description %></i><br />
+    <%= place.address %> 
+  </div>
+   <% end %>
+</div>
+
+  
+
+
+   
+<!-- map -->
+<div class="index-booyah-box col-xs-6">
+<script>
+function initMap() {
+  
+  var abcdef = {
+    info: '<strong>abcdef</strong><br>\
+            1000 3rd Ave, New York, NY 10022, United States',
+    lat: 40.7617793,
+    long: -73.9688554
+  };
+  var peterluger = {
+    info: '<a href="http://localhost:3030/seouls/5" target="_blank"><strong>Peter Luger Steak House</strong></a><br>\
+          178 Broadway, Brooklyn, NY 11211, United States',
+    lat: 40.7097992,
+    long: -73.9646711,
+  };
+  var passion5 = {
+    info: '<a href="http://localhost:3030/places/" target="_blank"><strong>Passion 5</strong></a><br>\r\
+          272 Itaewon-ro, Yongsan-gu, Seoul, South Korea',
+    lat: 37.5386889,
+    long: 126.993298
+  };
+  var gyeongbok = {
+    info: '<strong>Gyeongbokgung(palace)</strong><br>\r\
+          161 Sajik-ro, Jongno-gu, Seoul, South Korea',
+    lat: 37.578347,
+    long: 126.976599
+  };
+  var locations = [
+      [abcdef.info, abcdef.lat, abcdef.long, 0],
+      [peterluger.info, peterluger.lat, peterluger.long, 1],
+      [passion5.info, passion5.lat, passion5.long, 2],
+      [gyeongbok.info, gyeongbok.lat, gyeongbok.long, 3],
+    ];
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 13,
+    center: new google.maps.LatLng(37.555130, 126.970642),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+  var infowindow = new google.maps.InfoWindow({});
+  var marker, i;
+  for (i = 0; i < locations.length; i++) {
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+      map: map
+    });
+    google.maps.event.addListener(marker, 'click', (function (marker, i) {
+      return function () {
+        infowindow.setContent(locations[i][0]);
+        infowindow.open(map, marker);
+      }
+    })(marker, i));
+  }
+}
+</script>
+  
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
+<div id="map"></div>
+</div>
+
+<br class="clr" />
+
+<br />
