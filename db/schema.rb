@@ -11,11 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160719071238) do
-=======
+
 ActiveRecord::Schema.define(version: 20160719041532) do
->>>>>>> f1612b6596f7ab7ce29d97c3d68eda852d41dbdb
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,16 +29,6 @@ ActiveRecord::Schema.define(version: 20160719041532) do
   add_index "comments", ["place_id"], name: "index_comments_on_place_id", using: :btree
   add_index "comments", ["user_id", "place_id"], name: "index_comments_on_user_id_and_place_id", using: :btree
 
-<<<<<<< HEAD
-  create_table "photos", force: true do |t|
-    t.text     "caption"
-    t.integer  "place_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-=======
->>>>>>> f1612b6596f7ab7ce29d97c3d68eda852d41dbdb
   create_table "places", force: true do |t|
     t.string   "name"
     t.text     "description"

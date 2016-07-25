@@ -6,8 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :places
   has_many :comments
-<<<<<<< HEAD
-  
-=======
->>>>>>> f1612b6596f7ab7ce29d97c3d68eda852d41dbdb
+
 end
