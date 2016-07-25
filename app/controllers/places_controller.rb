@@ -9,7 +9,10 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])   
     @comment = Comment.new
+<<<<<<< HEAD
     
+=======
+>>>>>>> f1612b6596f7ab7ce29d97c3d68eda852d41dbdb
   end
 
   def new
