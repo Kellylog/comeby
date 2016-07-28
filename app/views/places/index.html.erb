@@ -59,9 +59,9 @@
 var locations = [
       <% @places.each do |place| %>
         <% if place == @places.last %>
-        ['<%= link_to place.name, place_path(place) %><br/><%= place.description %>', <%= place.latitude %>, <%= place.longitude %>, 4]
+        ['<%= link_to place.name, place_path(place), target: '_blank' %><br/><%= place.description %>', <%= place.latitude %>, <%= place.longitude %>, 4]
         <% else %>
-        ['<%= link_to place.name, place_path(place) %><br/><%= place.description %>', <%= place.latitude %>, <%= place.longitude %>, 4],
+        ['<%= link_to place.name, place_path(place), target: '_blank' %><br/><%= place.description %>', <%= place.latitude %>, <%= place.longitude %>, 4],
         <% end %>
       <% end %>
     ];
@@ -97,9 +97,9 @@ function initMap() {
   
 </script>
   
-
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCijAQRpdcDw0nmE7J4mn8LzandqC3I8qI&callback=initMap"></script>
+
 <div id="map"></div>
 
 </div>
