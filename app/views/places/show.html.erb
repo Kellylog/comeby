@@ -1,10 +1,60 @@
 <div class="text-center">
   <h1><%= @place.name %></h1>
-  <i><%= @place.address %></i>
+ <i><%= @place.address %></i>
   <br /><br />
-  <p><%= @place.description %></p>
+ <b><%= @place.description %></b>
 </div>
+
   <hr />
+  <div class="clear"></div>
+
+
+
+<!-- photo --><!-- photo -->
+<h2 class="pull-left">Photos</h1>   &nbsp;&nbsp;
+
+<!-- Button trigger modal -->
+<button class="btn btn-primary" data-toggle="modal" data-target="#myPhotoModal">
+  Add a photo
+</button>
+<div class="modal fade" id="myPhotoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add a photo</h4>
+      </div>
+
+      <%= simple_form_for @photo, url: place_photos_path(@place) do |p| %>
+
+        <div class="modal-body">
+          <%= p.input :picture %><br />
+          <%= p.input :caption %><br />
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= p.submit "Add a Photo", class: 'btn btn-primary' %>
+        <% end %>
+        </div>
+      
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+
+
+  
+<% @place.photos.each do |photo| %>
+ <%= photo.picture %>
+ <%= image_tag photo.picture_url(:thumb), class: 'img-responsive' %>
+ <%= photo.caption %><br /><br />
+<% end %>
+
+<hr />
+
+
 
 <!-- comment --><!-- comment --><!-- comment -->
 <h2>Reviews</h2>

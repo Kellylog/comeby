@@ -38,14 +38,30 @@
   
   <hr />
   
+  
+
   <% @places.each do |place| %>
-  <div class="index-booyah-inner-box col-xs-5 sidebar_item">
-    <h4><%= link_to place.name, place_path(place), target: '_blank' %></h4><br />
+  <div class="index-booyah-inner-box col-xs-5 sidebar_item">    
+    <h4 id="demo" onmouseover="mouseOver()" onmouseout="mouseOut()"><%= link_to place.name, place_path(place), target: '_blank' %></h4><br />
     <i><%= place.description %></i><br />
     <%= place.address %> 
   </div>
+  <script>
+function mouseOver() {
+    document.getElementById("demo").innerHTML = (marker, i);
+}
+
+function mouseOut() {
+    document.getElementById("demo").style.color = "green";
+}
+</script>
+
+
    <% end %>
+
+   
 </div>
+
 
   
 
@@ -67,21 +83,20 @@ var locations = [
     ];
 
 function initMap() {   
-  
-
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 13,
-    center: new google.maps.LatLng(37.555130, 126.970642),
+    center: {lat: 37.555130, lng: 126.970642},
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
+
   var infowindow = new google.maps.InfoWindow({});
 
   var marker, i;
 
-  for (i = 0; i < locations.length; i++) {
-    marker = new google.maps.Marker({
+  for (i = 0; i < locations.length; i++) {    
+    var marker = new google.maps.Marker({
       position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-      map: map
+      map: map      
     });
 
     google.maps.event.addListener(marker, 'mouseover', (function (marker, i) {
