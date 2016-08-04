@@ -46,18 +46,21 @@
 <div class="clear"></div>
 
 
-  <br />
- <div class="row">
+ 
+<div class="row">
 <% @place.photos.each do |photo| %> 
-<div class="col-xs-12 col-sm-3">
-  <div class="img-thumbnail">
- <%= image_tag photo.picture_url(:thumb) %><br />
-
- <em><%= photo.caption %></em><br />
-</div>
- </div>
+  <div class="col-xs-12 col-sm-3">
+    <br />
+    <div class="img-thumbnail">
+      <%= image_tag photo.picture_url(:thumb) %><br />
+      <div style="align: left; text-align:center;">
+       <em><%= photo.caption %></em><br />
+      </div>
+    </div>
+  </div>
 <% end %>
 </div>
+ 
 
 
 <hr />
