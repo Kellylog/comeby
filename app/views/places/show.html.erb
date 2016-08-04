@@ -11,6 +11,7 @@
 
 
 <!-- photo --><!-- photo -->
+
 <h2 class="pull-left">Photos</h1>   &nbsp;&nbsp;
 
 <!-- Button trigger modal -->
@@ -45,12 +46,19 @@
 <div class="clear"></div>
 
 
-  
-<% @place.photos.each do |photo| %>
- <%= photo.picture %>
- <%= image_tag photo.picture_url(:thumb), class: 'img-responsive' %>
- <%= photo.caption %><br /><br />
+  <br />
+ <div class="row">
+<% @place.photos.each do |photo| %> 
+<div class="col-xs-12 col-sm-3">
+  <div class="img-thumbnail">
+ <%= image_tag photo.picture_url(:thumb) %><br />
+
+ <em><%= photo.caption %></em><br />
+</div>
+ </div>
 <% end %>
+</div>
+
 
 <hr />
 
@@ -103,7 +111,7 @@ function initMap() {
 </script>
 
 <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUE13DhQOPkmUq4KUpLtYhZHVvEB4wqA0&callback=initMap"></script>
+  src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
         
 <div id="map"></div>
 <% end %>
