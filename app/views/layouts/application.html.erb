@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Comeby</title>
+  <title>Place and Plan</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -19,7 +19,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to 'Comeby', root_path, class: 'navbar-brand' %>
+      <%= link_to 'Place and Plan', root_path, class: 'navbar-brand' %>
     </div>
 
 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -67,13 +67,9 @@
 <div id="footer">
   <div class="container">
 
-    <div class="col-xs-12 col-sm-3">
-        <b>ABCD</b>
-        <br />
-        <%= link_to 'abc', '#' %>        
-      </div>
+    
 
-      <div class="col-xs-12 col-sm-3 about">
+      <div class="col-xs-12 col-sm-4 about">
         <b>About</b>
         <br />
         <%= link_to 'Privacy Policy', privacy_path %>
@@ -86,7 +82,7 @@
         <br />
       </div>
 
-      <div class="col-xs-12 col-sm-3 social">
+      <div class="col-xs-12 col-sm-4 social">
         <b>Social</b>
         <br />          
         <%= link_to 'https://www.facebook.com' do %>
@@ -97,10 +93,10 @@
         <% end %>
       </div>
 
-      <div class="col-xs-12 col-sm-3">
+      <div class="col-xs-12 col-sm-4">
         <b>Contact</b>
         <br />
-        kellylogblog@gmail.com
+        placeandplan@gmail.com
         <br />
         South Korea
       </div>
