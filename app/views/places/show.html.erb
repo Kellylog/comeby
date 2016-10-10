@@ -1,9 +1,16 @@
 <div class="text-center">
-  <h1><%= @place.name %></h1>
+  <h1><%= @place.name %>&nbsp;&nbsp;&nbsp;
+    <% if current_user && current_user == @place.user %>
+    <%= link_to 'Destroy', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger' %></h1> 
+    <% end %>
+  
+  <br />
  <i><%= @place.address %></i>
   <br /><br />
  <b><%= @place.description %></b>
 </div>
+
+
 
   <hr />
   <div class="clear"></div>
