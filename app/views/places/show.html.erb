@@ -1,19 +1,14 @@
 <div class="text-center">
-  <h1><%= @place.name %>&nbsp;&nbsp;&nbsp;</h1> 
-    <% if current_user && current_user == @place.user %>
-    <%= link_to 'Destroy', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger' %>
-    <% end %>
-  
+  <h1><%= @place.name %></h1>    
   <br />
  <i><%= @place.address %></i>
   <br /><br />
  <b><%= @place.description %></b>
 </div>
-
-
-
   <hr />
   <div class="clear"></div>
+
+
 
 
 
@@ -74,6 +69,8 @@
 
 
 
+
+
 <!-- comment --><!-- comment --><!-- comment -->
 <h2>Reviews</h2>
 <div class="comments">    
@@ -97,7 +94,14 @@
 
 <hr />
 
-<!-- map -->
+
+
+
+
+
+
+
+<!-- map --><!-- map --><!-- map -->
 <div class="show-booyah-box col-xs-10 col-xs-offset-1">
   <h2>Location</h2>
   <i><%= @place.address %></i><br /><br />
@@ -129,3 +133,4 @@ function initMap() {
 <% end %>
 </div>
 
+     <div class="clear"></div>
