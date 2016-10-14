@@ -6,6 +6,7 @@ Comeby::Application.routes.draw do
   get 'disclaimer', to: 'mainpages#disclaimer'
   get 'terms', to: 'mainpages#terms'
 
+
   resources :places do
     resources :comments, only: :create
     resources :photos, only: :create

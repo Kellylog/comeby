@@ -5,8 +5,13 @@
   <br /><br />
  <b><%= @place.description %></b>
 </div>
+ 
+ <div class="clear"></div>
+    
+     <%= link_to 'Delete the Place', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger' %>
+     
   <hr />
-  <div class="clear"></div>
+  
 
 
 
